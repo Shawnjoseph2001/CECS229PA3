@@ -2,125 +2,57 @@
 # Please fill out this stencil and submit using the provided submission script.
 
 
-
-
-
 ## 1: (Problem 1.7.1) Python Comprehensions: Filtering
 def myFilter(L, num):
-    '''
-    Input:
-      -L: a list of numbers
-      -num: a positive integer
-    Output:
-      -a list of numbers not containing a multiple of num
-    Examples:
-      >>> myFilter([1,2,4,5,7],2)
-      [1, 5, 7]
-      >>> myFilter([10,15,20,25],10)
-      [15, 25]
-    '''
+    ret = []
     for i in L:
-        if not (i % num == 0):
-            L.remove(i)
-    return L
-
+        if not i % num == 0:
+            ret.append(i)
+    return ret
 
 
 ## 2: (Problem 1.7.2) Python Comprehensions: Lists of Lists
 
 def my_lists(L):
-    '''
-    >>> my_lists([1,2,4])
-    [[1], [1, 2], [1, 2, 3, 4]]
-    >>> my_lists([0,3])
-    [[], [1, 2, 3]]
-    '''
     ret = []
     for i in L:
         ret2 = []
-        for j in range(i):
+        for j in range(1, i + 1):
             ret2.append(j)
         ret.append(ret2)
     return ret
 
 
-
 ## 3: (Problem 1.7.3) Python Comprehensions: Function Composition
 def myFunctionComposition(f, g):
-    '''
-    Input:
-      -f: a function represented as a dictionary such that g of f exists
-      -g: a function represented as a dictionary such that g of f exists
-    Output:
-      -a dictionary that represents a function g of f
-    Examples:
-      >>> f = {0:'a',1:'b'}
-      >>> g = {'a':'apple','b':'banana'}
-      >>> myFunctionComposition(f,g) == {0:'apple',1:'banana'}
-      True
-
-      >>> a = {'x':24,'y':25}
-      >>> b = {24:'twentyfour',25:'twentyfive'}
-      >>> myFunctionComposition(a,b) == {'x':'twentyfour','y':'twentyfive'}
-      True
-    '''
-    pass
-
+    ret = {}
+    for i in f:
+        ret[i] = g.get(f[i])
+    return ret
 
 
 ## 4: (Problem 1.7.4) Summing numbers in a list
 def mySum(L):
-    '''
-    Input:
-      a list L of numbers
-    Output:
-      sum of the numbers in L
-Be sure your procedure works for the empty list.
-    Examples:
-      >>> mySum([1,2,3,4])
-      10
-      >>> mySum([3,5,10])
-      18
-    '''
-    pass
-
+    current = 0
+    for x in L:
+        current = current + x
+    return current
 
 
 ## 5: (Problem 1.7.5) Multiplying numbers in a list
 def myProduct(L):
-    '''
-    Input:
-      -L: a list of numbers
-    Output:
-      -the product of the numbers in L
-Be sure your procedure works for the empty list.
-    Examples:
-      >>> myProduct([1,3,5])
-      15
-      >>> myProduct([-3,2,4])
-      -24
-    '''
-    pass
-
+    current = 1
+    for x in L:
+        current = current * x
+    return current
 
 
 ## 6: (Problem 1.7.6) Minimum of a list
 def myMin(L):
-    '''
-    Input:
-      a list L of numbers
-    Output:
-      the minimum number in L
-Be sure your procedure works for the empty list.
-Hint: The value of the Python expression float('infinity') is infinity.
-    Examples:
-    >>> myMin([1,-100,2,3])
-    -100
-    >>> myMin([0,3,5,-2,-5])
-    -5
-    '''
-    pass
-
+    current = L[0]
+    for x in L:
+        current = min(current, x)
+    return current
 
 
 ## 7: (Problem 1.7.7) Concatenation of a List
@@ -140,7 +72,6 @@ Be sure your procedure works for the empty list.
     pass
 
 
-
 ## 8: (Problem 1.7.8) Union of Sets in a List
 def myUnion(L):
     '''
@@ -158,7 +89,6 @@ Be sure your procedure works for the empty list.
     pass
 
 
-
 ## 9: (Problem 1.7.10) Complex Addition Practice
 # Each answer should be a Python expression whose value is a complex number.
 
@@ -168,9 +98,8 @@ complex_addition_c = ...
 complex_addition_d = ...
 
 
-
 ## 10: (Problem 1.7.12) Combining Complex Operations
-#Write a procedure that evaluates ax+b for all elements in L
+# Write a procedure that evaluates ax+b for all elements in L
 
 def transform(a, b, L):
     '''
@@ -187,9 +116,7 @@ def transform(a, b, L):
     pass
 
 
-
 ## 11: (Problem 1.7.13) GF(2) Arithmetic
-GF2_sum_1 = ... # answer with 0 or 1
+GF2_sum_1 = ...  # answer with 0 or 1
 GF2_sum_2 = ...
 GF2_sum_3 = ...
-
